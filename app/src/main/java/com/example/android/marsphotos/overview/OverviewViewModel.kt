@@ -21,6 +21,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.marsphotos.network.MarsApi
+import com.example.android.marsphotos.network.MarsPhoto
 import kotlinx.coroutines.launch
 
 /**
@@ -48,7 +49,7 @@ class OverviewViewModel : ViewModel() {
         // _status.value = "Set the Mars API status response here!"
         viewModelScope.launch {
             val listResult = MarsApi.retrofitService.getPhotos()
-            _status.value = listResult
+            _status.value = "Success: you got ${listResult.size} photos"
         }
     }
 }
