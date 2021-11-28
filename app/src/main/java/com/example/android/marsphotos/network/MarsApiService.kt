@@ -14,7 +14,8 @@ private val retrofit = Retrofit.Builder()
 interface MarsApiService {
 
     @GET("photos")
-    fun getPhotos(): String
+    // why do I need suspend here?
+    suspend fun getPhotos(): String
 }
 
 // The call to create() function on a Retrofit object is expensive and the app needs only one
