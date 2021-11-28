@@ -48,8 +48,12 @@ class OverviewViewModel : ViewModel() {
     private fun getMarsPhotos() {
         // _status.value = "Set the Mars API status response here!"
         viewModelScope.launch {
-            val listResult = MarsApi.retrofitService.getPhotos()
-            _status.value = "Success: you got ${listResult.size} photos"
+            try {
+                val listResult = MarsApi.retrofitService.getPhotos()
+                _status.value = "Success: you got ${listResult.size} photos"
+            } catch (e: Exception) {
+                _status.value = "Error ${e.message}"
+            }
         }
     }
 }
