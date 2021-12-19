@@ -6,6 +6,7 @@ import okio.buffer
 import okio.source
 
 open class BaseTest {
+    // base test class so we can reuse this for other tests -- OOP design
 
     val mockWebServer = MockWebServer()
 
